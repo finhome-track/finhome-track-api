@@ -499,48 +499,59 @@ components:
           type: string
           description: Owned account the incomes goes to
           examples: ["Savings Account", "Shared Account"]
+        value:
+          type: number
+          format: double
     Expense:
+      required: 
+        - timestamp
+        - value
       type: object
       properties:
         id:
           type: integer
           format: int64
           examples: [10]
-        petId:
+        timestamp:
           type: integer
-          format: int64
-          examples: [198772]
-        quantity:
-          type: integer
-          format: int32
-          examples: [7]
-        shipDate:
+          format: timestamp
+        from:
           type: string
-          format: date-time
-        status:
+          description: Entity or bank account the income comes from
+          examples: ["Company", "Savings Account"]
+        to:
           type: string
-          description: Order Status
-          examples: [approved]
-          enum:
-            - placed
-            - approved
-            - delivered
-        complete:
-          type: boolean
+          description: Owned account the incomes goes to
+          examples: ["Savings Account", "Shared Account"]
+        value:
+          type: number
+          format: double
     Transference:
+      required:
+        - timestamp
+        - value
+        - from
+        - to
       type: object
       properties:
         id:
           type: integer
           format: int64
           examples: [100000]
-        username:
+        timestamp:
+          type: integer
+          format: timestamp
+        from:
           type: string
-          examples: [fehguy]
-        address:
-          type: array
-          items:
-            $ref: '#/components/schemas/Address'
+          description: Entity or bank account the income comes from
+          examples: ["Company", "Savings Account"]
+        to:
+          type: string
+          description: Owned account the incomes goes to
+          examples: ["Savings Account", "Shared Account"]
+        value:
+          type: number
+          format: double
     ApiResponse:
       type: object
       properties:
@@ -602,4 +613,4 @@ components:
     jwt:
       type: http
       scheme: bearer
-      bearerFormat: JWT
+      bearerFormat: JWT"
