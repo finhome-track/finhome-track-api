@@ -861,7 +861,7 @@ ul.nav-tabs {
   }
 };
     defs["Expense"] = {
-  "required" : [ "timestamp", "value" ],
+  "required" : [ "from", "timestamp", "to", "value" ],
   "properties" : {
     "id" : {
       "type" : "integer",
@@ -878,6 +878,18 @@ ul.nav-tabs {
     "to" : {
       "type" : "string",
       "description" : "Owned account the incomes goes to"
+    },
+    "regular" : {
+      "type" : "boolean",
+      "description" : "If the income is regular or not"
+    },
+    "category" : {
+      "type" : "string",
+      "description" : "Category of the expense"
+    },
+    "description" : {
+      "type" : "string",
+      "description" : "Description of the expense"
     },
     "value" : {
       "type" : "number",
@@ -886,7 +898,7 @@ ul.nav-tabs {
   }
 };
     defs["Income"] = {
-  "required" : [ "timestamp", "value" ],
+  "required" : [ "from", "timestamp", "to", "value" ],
   "properties" : {
     "id" : {
       "type" : "integer",
@@ -903,6 +915,18 @@ ul.nav-tabs {
     "to" : {
       "type" : "string",
       "description" : "Owned account the incomes goes to"
+    },
+    "regular" : {
+      "type" : "boolean",
+      "description" : "If the income is regular or not"
+    },
+    "category" : {
+      "type" : "string",
+      "description" : "Category of the expense"
+    },
+    "description" : {
+      "type" : "string",
+      "description" : "Description of the expense"
     },
     "value" : {
       "type" : "number",
@@ -928,6 +952,14 @@ ul.nav-tabs {
     "to" : {
       "type" : "string",
       "description" : "Owned account the incomes goes to"
+    },
+    "regular" : {
+      "type" : "boolean",
+      "description" : "If the transference is regular or not"
+    },
+    "description" : {
+      "type" : "string",
+      "description" : "Description of the transference"
     },
     "value" : {
       "type" : "number",
@@ -1070,10 +1102,13 @@ ul.nav-tabs {
  -H "Content-Type: application/json" \
  "http://localhost:8080/api/v1/expense" \
  -d '{
+  &quot;description&quot; : &quot;description&quot;,
   &quot;from&quot; : &quot;from&quot;,
   &quot;id&quot; : 0,
   &quot;to&quot; : &quot;to&quot;,
+  &quot;category&quot; : &quot;category&quot;,
   &quot;value&quot; : 1.4658129805029452,
+  &quot;regular&quot; : true,
   &quot;timestamp&quot; : 6
 }'
 </code></pre>
@@ -2334,10 +2369,13 @@ List only incomes added since the provided value
  -H "Content-Type: application/json" \
  "http://localhost:8080/api/v1/expense" \
  -d '{
+  &quot;description&quot; : &quot;description&quot;,
   &quot;from&quot; : &quot;from&quot;,
   &quot;id&quot; : 0,
   &quot;to&quot; : &quot;to&quot;,
+  &quot;category&quot; : &quot;category&quot;,
   &quot;value&quot; : 1.4658129805029452,
+  &quot;regular&quot; : true,
   &quot;timestamp&quot; : 6
 }'
 </code></pre>
@@ -3206,10 +3244,13 @@ Status of pet that needs to be updated
  -H "Content-Type: application/json" \
  "http://localhost:8080/api/v1/income" \
  -d '{
+  &quot;description&quot; : &quot;description&quot;,
   &quot;from&quot; : &quot;from&quot;,
   &quot;id&quot; : 0,
   &quot;to&quot; : &quot;to&quot;,
+  &quot;category&quot; : &quot;category&quot;,
   &quot;value&quot; : 1.4658129805029452,
+  &quot;regular&quot; : true,
   &quot;timestamp&quot; : 6
 }'
 </code></pre>
@@ -4470,10 +4511,13 @@ List only incomes added since the provided value
  -H "Content-Type: application/json" \
  "http://localhost:8080/api/v1/income" \
  -d '{
+  &quot;description&quot; : &quot;description&quot;,
   &quot;from&quot; : &quot;from&quot;,
   &quot;id&quot; : 0,
   &quot;to&quot; : &quot;to&quot;,
+  &quot;category&quot; : &quot;category&quot;,
   &quot;value&quot; : 1.4658129805029452,
+  &quot;regular&quot; : true,
   &quot;timestamp&quot; : 6
 }'
 </code></pre>
@@ -5342,10 +5386,12 @@ Status of pet that needs to be updated
  -H "Content-Type: application/json" \
  "http://localhost:8080/api/v1/transference" \
  -d '{
+  &quot;description&quot; : &quot;description&quot;,
   &quot;from&quot; : &quot;from&quot;,
   &quot;id&quot; : 0,
   &quot;to&quot; : &quot;to&quot;,
   &quot;value&quot; : 1.4658129805029452,
+  &quot;regular&quot; : true,
   &quot;timestamp&quot; : 6
 }'
 </code></pre>
@@ -6606,10 +6652,12 @@ List only transference added since the provided value
  -H "Content-Type: application/json" \
  "http://localhost:8080/api/v1/transference" \
  -d '{
+  &quot;description&quot; : &quot;description&quot;,
   &quot;from&quot; : &quot;from&quot;,
   &quot;id&quot; : 0,
   &quot;to&quot; : &quot;to&quot;,
   &quot;value&quot; : 1.4658129805029452,
+  &quot;regular&quot; : true,
   &quot;timestamp&quot; : 6
 }'
 </code></pre>

@@ -46,5 +46,5 @@ All URIs are relative to *http://localhost:8080/api/v1*
 <a name="jwt"></a>
 ### jwt
 
-- **Type**: HTTP Bearer Token authentication (JWT")
+- **Type**: HTTP Bearer Token authentication (JWT)
 

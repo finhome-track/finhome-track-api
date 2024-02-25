@@ -482,6 +482,8 @@ components:
       required:
         - timestamp
         - value
+        - from
+        - to
       type: object
       properties:
         id:
@@ -499,6 +501,18 @@ components:
           type: string
           description: Owned account the incomes goes to
           examples: ["Savings Account", "Shared Account"]
+        regular:
+          type: boolean
+          description: If the income is regular or not
+          examples: [true, false]
+        category:
+          type: string
+          description: Category of the expense
+          examples: ["Rent", "Groceries"]
+        description:
+          type: string
+          description: Description of the expense
+          examples: ["Rental payment", "Groceries for the week"]
         value:
           type: number
           format: double
@@ -506,6 +520,8 @@ components:
       required: 
         - timestamp
         - value
+        - from
+        - to
       type: object
       properties:
         id:
@@ -523,6 +539,18 @@ components:
           type: string
           description: Owned account the incomes goes to
           examples: ["Savings Account", "Shared Account"]
+        regular:
+          type: boolean
+          description: If the income is regular or not
+          examples: [true, false]
+        category:
+          type: string
+          description: Category of the expense
+          examples: ["Rent", "Groceries"]
+        description:
+          type: string
+          description: Description of the expense
+          examples: ["Rental payment", "Groceries for the week"]
         value:
           type: number
           format: double
@@ -549,6 +577,14 @@ components:
           type: string
           description: Owned account the incomes goes to
           examples: ["Savings Account", "Shared Account"]
+        regular:
+          type: boolean
+          description: If the transference is regular or not
+          examples: [true, false]
+        description:
+          type: string
+          description: Description of the transference
+          examples: ["Transfer to savings account", "Transfer to shared account"]  
         value:
           type: number
           format: double
@@ -613,4 +649,4 @@ components:
     jwt:
       type: http
       scheme: bearer
-      bearerFormat: JWT"
+      bearerFormat: JWT
