@@ -1,0 +1,9 @@
+.openapi-generator-ignore
+Apis/ExpenseApi.md
+Apis/IncomeApi.md
+Apis/TransferenceApi.md
+Models/ApiResponse.md
+Models/Expense.md
+Models/Income.md
+Models/Transference.md
+README.md
